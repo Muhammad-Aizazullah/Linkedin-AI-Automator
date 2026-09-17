@@ -4,7 +4,8 @@ from config import Config
 genai.configure(api_key=Config.GEMINI_API_KEY)
 
 def process_chat_instruction(current_draft, user_instruction):
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    # Model name changed to gemini-pro
+    model = genai.GenerativeModel('gemini-pro')
     prompt = f"""
     You are an AI assistant refining a LinkedIn post.
     Current Draft: {current_draft}

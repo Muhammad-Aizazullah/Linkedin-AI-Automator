@@ -4,7 +4,8 @@ from config import Config
 genai.configure(api_key=Config.GEMINI_API_KEY)
 
 def generate_post(topic="Computer Vision"):
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    # Model name changed to gemini-pro to fix the 404 error
+    model = genai.GenerativeModel('gemini-pro')
     prompt = f"""
     Write a highly professional 150-word LinkedIn post about {topic}. 
     Keep it factual, clean, and concrete. 
