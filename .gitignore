@@ -1,0 +1,14 @@
+# Environments
+.env
+__pycache__/
+venv/
+env/
+
+# Database
+instance/
+*.sqlite3
+*.db
+
+# Uploads
+static/uploads/*
+!static/uploads/.gitkeep

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>LinkedIn Content Pipeline</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>LinkedIn Content Pipeline</h1>
+        </header>
+
+        <div class="draft-section">
+            <h3>Today's Draft</h3>
+            
+            <div class="post-content" id="draftText">
+                {% if post %}
+                    {{ post.content }}
+                {% else %}
+                    No draft available yet. Click 'Generate New'.
+                {% endif %}
+            </div>
+            
+            {% if post and post.image_url %}
+                <img src="{{ post.image_url }}" alt="Draft Image" class="post-image" id="draftImage">
+            {% endif %}
+            
+            <div class="action-buttons">
+                <button onclick="generateNewPost()">Generate New</button>
+                {% if post and post.status != 'posted' %}
+                    <button onclick="takeAction({{ post.id }}, 'approve')">Approve & Post Now</button>
+                    <button class="reject" onclick="takeAction({{ post.id }}, 'reject')">Reject</button>
+                {% endif %}
+            </div>
+        </div>
+
+        <footer>
+            <a href="/privacy-policy.html">Privacy Policy</a> | 
+            <a href="/terms.html">Terms and Conditions</a>
+        </footer>
+    </div>
+    
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
